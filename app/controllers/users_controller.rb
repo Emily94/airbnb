@@ -6,6 +6,7 @@ class UsersController < Clearance::UsersController
     #     user.birth_date = user.login.capitalize if user.birth_date.blank?
     #   end
 
+
     private
 
     def user_from_params

@@ -1,0 +1,34 @@
+<%= form_with model: @listing, local: true do |form| %>
+ 
+   <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@listing.errors.count, "error") %> prohibited
+        this listing from being saved:
+      </h2>
+      <ul>
+        <% @listing.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+   <p class="field form-group">
+    <%= form.label :title %><br>
+    <%= form.text_field :title, class: 'form-control' %>
+    </p>
+
+  <p class="field form-group">
+    <%= form.label :description %><br>
+    <%= form.text_area :description, class: 'form-control' %>
+  </p>
+    
+    <p class="field form-group">
+    <%= form.label :price %><br>
+    <%= form.text_field :price, class: 'form-control' %>
+
+  <p>
+    <%= form.submit class: 'btn btn-success' %>
+  </p>
+<% end %>
