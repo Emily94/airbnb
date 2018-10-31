@@ -1,3 +1,25 @@
+<% if current_user == @listing.user %>
+   <p>Your property listing:</p>
+  <% else %>
+<% end %>
+
+<tr>
+      <td>Description: <%= @listing.property_description %></td></br>
+      <td>Capacity: <%= @listing.max_guest_number %> pax</td></br>
+      <td>Location: <%="#{@listing.city}, #{@listing.country} "%></td></br>
+
+
+    <% if current_user != @listing.user %>
+      <td>Hosted By: <%= @listing.user.first_name %></td></br></br>
+    <% else %>
+<% end %>
+
+      <td>Price Per Night: $<%= @listing.price %></td></br></br>
+      
+
+
+
+
 
 <p>
   <strong>Title:</strong>
@@ -14,5 +36,37 @@
   <%= @listing.price %>
 </p>
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<p>
+  <strong>Property Type:</strong>
+  <%= @listing.property_type %>
+</p>
+
+<p>
+  <strong>Number of Guests</strong>
+  <%= @listing.max_guest_number %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @listing.country %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @listing.city %>
+</p>
+
+<p>
+  <strong>Listing Host:</strong>
+  <%= @listing.User %>
+</p>
+
+
+<% if @listing.user_id == current_user.id %>
+<%= link_to 'Edit', edit_listing_path(@listing) %> 
 <%= link_to 'Back', listings_path %>
+<% else %>
+<%= link_to 'Back', listings_path %>
+<% end %>
+
+

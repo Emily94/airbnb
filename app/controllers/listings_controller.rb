@@ -1,11 +1,9 @@
 class ListingsController < ApplicationController
+  before_action :require_login, :only => [:new, :create, :edit, :update]
+
  
   def index
-    if current_user
-      @listings = Listing.not_belonging_to_current_user(current_user.id)
-    else
-      @listings = Listing.all
-    end
+    
   end
   
   def index
@@ -18,6 +16,7 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
+    
   end
 
   def edit
@@ -26,6 +25,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
+    @listing.user_id = current_user.id
  
     if @listing.save
       redirect_to @listing
@@ -56,7 +56,7 @@ class ListingsController < ApplicationController
   private
 
     def listing_params
-      params.require(:listing).permit(:title, :description, :price)
+      params.require(:listing).permit(:title, :description, :price, :property_type, :max_guest_number, :country, :city, :user)
     end
   
 

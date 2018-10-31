@@ -9,6 +9,11 @@ gem 'rails', '~> 5.2.1'
 
 gem 'pg'
 
+#allows drop down country selection for forms
+gem "countries"
+#supports country select
+gem "country_select"
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

@@ -1,10 +1,5 @@
 class UsersController < Clearance::UsersController
-    # before_action :set_post
-    
-    # validates :birth_date, :presence => true
-    # before_create do |user|
-    #     user.birth_date = user.login.capitalize if user.birth_date.blank?
-    #   end
+  
 
 
     private
@@ -15,6 +10,7 @@ class UsersController < Clearance::UsersController
         email = user_params.delete(:email)
         password = user_params.delete(:password)
         birth_date = user_params.delete(:birth_date)
+        
     
         Clearance.configuration.user_model.new(user_params).tap do |user|
           user.email = email

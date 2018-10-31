@@ -29,8 +29,14 @@ ActiveRecord::Schema.define(version: 2018_10_29_104951) do
     t.string "title"
     t.text "description"
     t.integer "price"
+    t.string "property_type"
+    t.integer "max_guest_number"
+    t.string "country"
+    t.string "city"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
