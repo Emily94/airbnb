@@ -1,24 +1,9 @@
-<%= form_with model: @listing, local: true do |form| %>
+<%= form_with scope: :listings, url: listings_path, local: true do |form| %>
  
-   
  
   <h1>Add your listing:</h1>
 
-    <% if @listing.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@listing.errors.count, "error") %> prohibited
-            this listing from being saved:
-          </h2>
-          <ul>
-            <% @listing.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-  <%= form_with scope: :listings, url: listings_path, local: true do |form| %>
+  
       <p>
         <%= form.label :title %><br>
         <%= form.text_field :title %>
@@ -28,8 +13,8 @@
       <%= form.text_field :property_type %>
       </p>
       <p>
-        <%= form.label :property_description %><br>
-      <%= form.text_field :property_description %>
+        <%= form.label :description %><br>
+      <%= form.text_field :description %>
       </p>
         <%= form.label :maximum_guests %><br>
         <%= form.select :max_guest_number, (0..20) %>
@@ -49,5 +34,7 @@
       <p>
         <%= form.submit class: 'btn btn-success' %>
       </p>
-  <% end %>
+
+     
+  
 <% end %>

@@ -1,34 +1,18 @@
 <h3>Listings page</h3>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Property Type</th>
-    <th>Maximum number of guests</th>
-    <th>Country</th>
-    <th>City</th>
-    <th>User</th>
 
-    <th colspan="8"></th>
-  </tr>
- 
+
   <% @listings.each do |listing| %>
-    <tr>
-      <td><%= listing.title %></td>
-      <td><%= listing.description %></td>
-      <td><%= listing.price %></td>
-      <td><%= listing.property_type %></td>
-      <td><%= listing.max_guest_number %></td>
-      <td><%= listing.country %></td>
-      <td><%= listing.city %></td>
-      <td><%= listing.user %></td>
-      <td><%= link_to 'Show', listing_path(listing) %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%= link_to 'Destroy', listing_path(listing),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td> 
-    </tr>
-  <% end %>
-</table>
+<!-- BOOTSTRAP CARD -->
+  <div class="card-group">
+  <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="http://placehold.it/200x200" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= listing.title %></h5>
+    <p class="card-text"><%= "#{listing.city}, #{listing.country} "%></p>
+    <p class="card-text"><%= listing.description %></p>
+    <p class="card-text"><%= "Per Night: $ #{listing.price} "%></p>
+    <%= link_to "View Listing", listing_path(listing), class: "btn btn-primary" %>
+
+  </div></br>
+<% end %></br>

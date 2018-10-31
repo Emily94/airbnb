@@ -4,7 +4,7 @@
 <% end %>
 
 <tr>
-      <td>Description: <%= @listing.property_description %></td></br>
+      <td>Description: <%= @listing.description %></td></br>
       <td>Capacity: <%= @listing.max_guest_number %> pax</td></br>
       <td>Location: <%="#{@listing.city}, #{@listing.country} "%></td></br>
 
@@ -15,51 +15,8 @@
 <% end %>
 
       <td>Price Per Night: $<%= @listing.price %></td></br></br>
+</tr>
       
-
-
-
-
-
-<p>
-  <strong>Title:</strong>
-  <%= @listing.title %>
-</p>
- 
-<p>
-  <strong>Description:</strong>
-  <%= @listing.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @listing.price %>
-</p>
-
-<p>
-  <strong>Property Type:</strong>
-  <%= @listing.property_type %>
-</p>
-
-<p>
-  <strong>Number of Guests</strong>
-  <%= @listing.max_guest_number %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @listing.country %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @listing.city %>
-</p>
-
-<p>
-  <strong>Listing Host:</strong>
-  <%= @listing.User %>
-</p>
 
 
 <% if @listing.user_id == current_user.id %>
