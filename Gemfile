@@ -29,9 +29,21 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# Gem for generating faking data
+# Gem for generating fake data
 gem 'faker'
+# Pagination generates pages
+gem 'will_paginate', '~> 3.1.1'
+# cancan to authorize users to do different things
+# gem 'cancan'
+#for photo upload
+gem 'carrierwave', '~> 1.0'
+#do do eih cloud storage
+gem 'carrierwave-aws'
+#cloud image storage gems
+gem 'fog-aws'
+gem 'aws-sdk-rails'
 
+# gem 'cancancan', '~> 2.0'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -49,6 +61,8 @@ gem 'clearance', '~> 1.12', '>= 1.12.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+#supports bootstrap
+gem 'jquery-rails'
 
 # hiding your keys
 gem "figaro"

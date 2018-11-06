@@ -1,13 +1,14 @@
 class ListingsController < ApplicationController
   before_action :require_login, :only => [:new, :create, :edit, :update]
 
+
  
   def index
     
   end
   
   def index
-    @listings = Listing.all
+    @listings = Listing.all.paginate(page: params[:page], per_page: 8)
   end
  
   def show
@@ -16,7 +17,10 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
-    
+     # authorization code
+     
+      # allowed?(action: <replace with your action>, user: current_user)
+  
   end
 
   def edit

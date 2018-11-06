@@ -26,16 +26,8 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
-
-
-      
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-            </li>
           
-
-          <ul> 
+           <ul> 
           
           <li class="nav-item">
            <% if signed_in? %>
@@ -47,35 +39,66 @@
           </li>
 
 
-          <li>
-          <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
-          </li>
+         
 
 
           
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <%= link_to 'sign up', sign_up_path, class: "nav-link" %>
-          </li>
 
 
           <li class="nav-item">
             <%= link_to 'Become a host', new_listing_path, class: "nav-link" %>
           </li>
         </ul>
+    
 
+      <% if signed_in? %>
+                   
+        <li class="nav-item">
+          <%= link_to 'Your Account', users_path(current_user), class: 'nav-item nav-link active' %>
+        </li>
+                    
+      
+        </ul>
 
-      
-      
-      
-      </div>
+      <!-- avatar -->
+  
+        </div>
+        <div>
+          
+        </div>
+        </nav>
+
+      <% else %>
+
+        <li class="nav-item">
+          <%= link_to t(".sign_in"), sign_in_path, class: 'nav-item nav-link active' %>
+        </li>
+                  
+        <li class="nav-item">
+          <%= link_to t(".sign_up"), sign_up_path, class: 'nav-item nav-link active' %>
+        </li>
+
+         <li>
+          <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+        </li>
+
+        </ul>
+       </div>
     </nav>
 
+      
+  <% end %>
+
+  
+  </ul>
+</div>
 
 
 
-
+  <div class="container">
     <%= yield %>
+  </div>
   </body>
 </html>

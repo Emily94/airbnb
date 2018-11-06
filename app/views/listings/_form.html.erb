@@ -1,4 +1,5 @@
 <%= form_with scope: :listings, url: listings_path, local: true do |form| %>
+
  
  
   <h1>Add your listing:</h1>
@@ -10,7 +11,7 @@
       </p>
       <p>
         <%= form.label :property_type %><br>
-      <%= form.text_field :property_type %>
+      <%= form.select :property_type, ["Entire place", "Private room", "Shared room"] %>
       </p>
       <p>
         <%= form.label :description %><br>
@@ -30,7 +31,9 @@
           <%= form.label :price_per_night %><br>
         <%= form.number_field :price %>
       </p>
-
+      <p>
+      <%= form.file_field :avatars, multiple: true %>
+      </p>
       <p>
         <%= form.submit class: 'btn btn-success' %>
       </p>

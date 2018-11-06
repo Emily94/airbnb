@@ -4,6 +4,8 @@ class Listing < ApplicationRecord
     belongs_to :user
     validates :description, length: { maximum: 4000 }
 
+    mount_uploaders :images, ImageUploader
+
 
 
 end

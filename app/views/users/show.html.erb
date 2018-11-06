@@ -1,0 +1,35 @@
+<!-- Profile page for user, should be seen from other users but only edited by users -->
+   <% if current_user == @user %>
+
+<h1><%= "Welcome, #{@user.first_name}" %></h1>
+
+</br></br>
+
+<%= avatar_tag(@post.avatar.url, alt: 'Avatar') if @post.avatar? %>
+
+<h3>Properties you have listed:</h3>
+
+<div class="card-group">
+
+  
+ 
+
+    <% @listings.each do |listing| %>
+
+  <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="<%= listing.images[0] %>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= listing.title %></h5>
+    <p class="card-text"><%= "#{listing.city}, #{listing.country} "%></p>
+    <p class="card-text">jdgjdfkgjdfkbgjkdfsbgjdfbgdfbnidobknisgobmsiombosmbisogbnisgbniobonrbinbgisnbfnbjnirtsbn;orsti</p>
+    <%= link_to "View Listing", listing_path(listing), class: "btn btn-primary" %>
+  </div>
+</div>
+
+
+
+  <% end %></br>
+  </div></br>
+<%= button_to 'List a new property', "/listings/new", class: "btn btn-secondary", method: :get %></td></br></br>
+
+<% end %>
