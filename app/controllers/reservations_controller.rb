@@ -12,20 +12,13 @@ class ReservationsController < ApplicationController
       	@reservation.listing_id = (params[:listing_id])
     	  @listing = Listing.find(params[:listing_id])
         
-  
-
-        if @reservation.save
-#THE METHOD BELOW DELETES THE RESERVATION AFTER TEN MINUTES IF IT IS NOT PAID
-          DeleteUnpaidBookingJob.set(wait: 10.minutes).perform_later(@reservation)
-  	  	  redirect_to "/reservations/#{@reservation.id}/payments/new"
-  	     else
-          flash[:notice] = "Not available on those dates"
-    		  render 'new'
+  		if @reservation.save
+			render 'new'
         end
 
      end
 
-     def show
+    def show
   	   @reservation = Reservation.find(params[:id])
     end
 
@@ -40,7 +33,7 @@ class ReservationsController < ApplicationController
 
 	private
 	def reservation_params
-		params.require(:reservations).permit(:start_date, :end_date) 
+		params.require(:reservations).permit(:check_in, :check_out) 
 	end
  
 

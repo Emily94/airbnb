@@ -12,27 +12,31 @@ Rails.application.routes.draw do
   get "/sign_in" => "sessions#new", as: "sign_in"
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
+  
   root 'home#index'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :listings
+  # resources :listings
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
-
-#listings routes
+  #USERS ROUTES
+  get "/users/:id" => "users#show", as: "user"
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html#listings routes
 
   put "listings/:id" => "listings#update" #This updates the listing based on the id param
 
   delete "/listings/:id/destroy" => "listings#destroy", as: "destroy_listing"
 
+  get "/listings/:id" => "listings#show", as: "listing" #This shows a listing based on id param
   get "/listings" => "listings#index" #This show an index of current listings
   get "/listings/new" => "listings#new" #This serves the form for a new listing
+
   # get "/listings/:id" => "listings#show", as: "listing" #This shows a listing based on id param
 
   post "/listings" => "listings#create" #This creates the listing upon submit of form
 
-  # get "/listings/:id/edit" => "listings#edit", as: "edit_listing" #This serves the edit form for a listing
+  get "/listings/:id/edit" => "listings#edit", as: "edit_listing" #This serves the edit form for a listing
 
   #reservations routes 
   resources :listings do

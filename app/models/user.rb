@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     include Clearance::User
     has_many :authentications, dependent: :destroy
+    has_many :listings, dependent: :destroy
+    has_many :reservations, dependent: :destroy
     mount_uploader :avatars, AvatarUploader
 
     enum status: [:customer, :moderator, :superadmin]
@@ -14,6 +16,7 @@ class User < ApplicationRecord
             email: auth_hash["info"]["email"],
             # birth_date: auth_hash["info"]["birth date"]
             password: SecureRandom.hex(10)
+            avatar: auth_hash["info"]["avatar"]
           )
           user.authentications << authentication
           return user

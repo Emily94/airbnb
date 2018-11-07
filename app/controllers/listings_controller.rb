@@ -1,11 +1,6 @@
 class ListingsController < ApplicationController
   before_action :require_login, :only => [:new, :create, :edit, :update]
 
-
- 
-  def index
-    
-  end
   
   def index
     @listings = Listing.all.paginate(page: params[:page], per_page: 8)
@@ -16,11 +11,9 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @listing = Listing.new
+    @user = current_user
      # authorization code
-     
-      # allowed?(action: <replace with your action>, user: current_user)
-  
+     # allowed?(action: <replace with your action>, user: current_user)
   end
 
   def edit
@@ -60,7 +53,7 @@ class ListingsController < ApplicationController
 
 
 	def listing_params
-		params.require(:listings).permit(:property_name, :property_type, :description, :max_guest_number, :country, :city, :price) 
+		params.require(:listings).permit(:property_name, :property_type, :description, :max_guest_number, :country, :city, :price, {images:})
 	end
   
 

@@ -1,5 +1,17 @@
 <h1>Edit listing</h1>
+
+<tr>
+    <td><%="Name: #{@listing.title}"%></td><br>
+    <td><%="Description: #{@listing.description}" %></td><br>
+    <td><%="Location: #{@listing.city}, #{@listing.country}"%></td><br>
+	<td><%="Max Guests: #{@listing.max_guest_number}" %></td><br><br>
+	<td><b><%="Price Per Night: $#{@listing.price}" %></b></td><br><br><br>
+<tr>
+
+<h3>Enter new details:</h3>
  
-<%= render 'form' %>
+<%= render partial: 'form' %>
+
+<%= button_to ("Delete Listing"), destroy_listing_path, method: :delete %></br></br>
 
 <%= link_to 'Back', listings_path %>

@@ -1,30 +1,30 @@
 <div class="first_name-field">
-<%= form.label :first_name %>
-<%= form.text_field :first_name, type: 'first name' %>
+<%= f.label :first_name %>
+<%= f.text_field :first_name, type: 'first name' %>
 </div>
 
 <div class="last_name-field">
-<%= form.label :last_name %>
-<%= form.text_field :last_name, type: 'last name' %>
+<%= f.label :last_name %>
+<%= f.text_field :last_name, type: 'last name' %>
 </div>
 
 <div class="email-text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
+  <%= f.label :email %>
+  <%= f.text_field :email, type: 'email' %>
 </div>
 
 <div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
 </div>
 
 
 <div class="birth_date-field">
-<%= form.label :birth_date %>
-<%= date_field :user, :birth_date %>
+<%= f.label :birth_date %>
+<%= f.date_field :user, :birth_date %>
 </div>
 
 <div>
     <%= f.label :avatar %>
     <%= f.file_field :avatar %>
-  </div>
+</div>

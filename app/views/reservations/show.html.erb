@@ -1,8 +1,8 @@
-<h3><%=" Your booking details for: #{@reservation.listing.property_name} "%></h3></br>
+<h3><%=" Hey! Excited to stay at: #{@reservation.listing.title}? Here are all your booking details. "%></h3></br>
 
  <tr>
-      <td>From: <%= @reservation.start_date  %></td></br>
-      <td>Until: <%= @reservation.end_date  %></td></br>
+      <td>From: <%= @reservation.check_in  %></td></br>
+      <td>Dates: <%= @reservation.check_out  %></td></br>
       <td>Capacity: <%= @reservation.listing.max_guest_number %> pax</td></br>
       <td>Price Per Night: $<%= @reservation.listing.price %></td></br>
       <td>Contry: <%= @reservation.listing.country %></td></br>

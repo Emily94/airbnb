@@ -2,6 +2,12 @@ class UsersController < Clearance::UsersController
   
   params.require(:user).permit(:email, :first_name, :last_name, :password, :birth_date {avatars: []})
 
+
+  def show
+    @user = User.find(params[:id])
+    @listings = @user.listings
+  end
+
     private
 
     def user_from_params

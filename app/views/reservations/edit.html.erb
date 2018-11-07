@@ -1,0 +1,17 @@
+<h3><%= "Edit your booking at #{@reservation.listing.title}" %></h3>
+
+
+<%= form_with scope: :listings, url: reservation_path(@reservation), method: :put do |form| %>
+    <p>
+      <%= form.label :check_in %><br>
+  	  <%= form.date_field :check_out %>
+  	</p>
+  	<p>
+      <%= form.label :check_in %><br>
+  	  <%= form.date_field :check_out %>
+  	</p>
+    
+    <p>
+	  <%= form.submit "Change Reservation" %>
+	</p>
+<% end %>
